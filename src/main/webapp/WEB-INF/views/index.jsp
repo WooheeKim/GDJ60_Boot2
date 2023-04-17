@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="/css/test.css">
 </head>
 <body>
-	<h1>Index Page</h1>
+	<h1>뭘 보냐?</h1>
+	<img alt="" src="/images/test2.jpg">
+	<script type="text/javascript" src="/js/test.js"></script>
 </body>
 </html>
