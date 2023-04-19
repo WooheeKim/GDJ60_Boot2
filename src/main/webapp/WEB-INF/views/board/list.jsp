@@ -26,6 +26,10 @@
                     <p class="lead fw-normal text-muted mb-0">April 18, 2023</p>
                 </div>
                 
+		<div class=" d-flex justify-content-end my-3">
+                	<a href="./add" class="btn btn-primary">글쓰기</a>
+                </div>    
+		    
                 <div>
                 	<table class="table table-hover">
                 		<thead>
@@ -53,30 +57,32 @@
                 </div>
                 
                 <!-- 원시 pager, search -->
-                <c:if test="${pager.pre}">
-                	<a href="./list?page=${pager.startNum-1}">이전</a>
-                </c:if>
-                
-                <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-                	<a href="./list?page=${i}">${i}</a>
-                </c:forEach>
-                
-                <c:if test="${pager.next}">
-                	<a href="./list?page=${pager.lastNum+1}">다음</a>
-                </c:if>
-                
-                <form action="./list" method="get">
-                	<select name="kind">
-                		<option value="title">title</option>
-                		<option value="contents">contents</option>
-                		<option value="writer">writer</option>
-                	</select>
-                	
-                	<input type="text" name="search">
-                	<button type="submit">search</button>
-                </form>
-                
-                <a href="./add">글쓰기</a>
+		<div class="d-flex justify-content-center my-3">
+			<c:if test="${pager.pre}">
+				<a href="./list?page=${pager.startNum-1}">이전</a>
+			</c:if>
+
+			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+				<a href="./list?page=${i}">${i}</a>
+			</c:forEach>
+
+			<c:if test="${pager.next}">
+				<a href="./list?page=${pager.lastNum+1}">다음</a>
+			</c:if>
+		</div>
+		    
+		<div class="d-flex justify-content-center my-3">    
+			<form action="./list" method="get">
+				<select name="kind">
+					<option value="title">title</option>
+					<option value="contents">contents</option>
+					<option value="writer">writer</option>
+				</select>
+
+				<input type="text" name="search">
+				<button type="submit">search</button>
+			</form>
+		</div>               
                 
                 
                 
