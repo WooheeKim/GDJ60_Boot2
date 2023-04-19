@@ -11,7 +11,9 @@
     <title>Modern Business - Start Bootstrap Template</title>
     <!-- css/favicon -->
     	<c:import url="../temp/style.jsp"></c:import>
-    <!-- css/favicon -->
+    <!-- include summernote css/js-->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
@@ -102,5 +104,8 @@
   	<!-- Footer 끝 -->
   	<!-- url이 /notice/add.jsp 이므로.. -->
   	<script type="text/javascript" src="../js/boardValidation.js"></script>
+  	<script type="text/javascript">
+  		$('#contents').summernote();
+  	</script>
 </body>
 </html>
