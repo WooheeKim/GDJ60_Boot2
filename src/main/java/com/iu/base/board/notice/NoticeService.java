@@ -65,13 +65,13 @@ public class NoticeService implements BoardService {
 					boardFileVO.setFileName(fileName);
 					boardFileVO.setOriName(multipartFile.getOriginalFilename());
 					boardFileVO.setNum(boardVO.getNum());
-					noticeDAO.setFileInsert(boardFileVO);
+					result = noticeDAO.setFileInsert(boardFileVO);
 					
 				}
 			}
 		}
 		
-		return 0; //noticeDAO.setInsert(boardVO);
+		return result; //noticeDAO.setInsert(boardVO);
 	}
 
 	@Override
