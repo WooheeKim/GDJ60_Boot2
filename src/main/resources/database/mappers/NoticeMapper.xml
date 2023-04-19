@@ -57,9 +57,9 @@
 		</collection>
 	</resultMap>
 	
-	<select id="getFileDetail" parameterType="BoardFileVO" resultType="FileManager">
+	<select id="getFileDetail" parameterType="BoardFileVO" resultType="BoardFileVO">
 		SELECT * FROM
-		NOTICEFILE WHERE FILENUM = #{fileNum}
+		NOTICEFILES WHERE FILENUM = #{fileNum}
 	</select>
 	
 	<!-- insert -->
