@@ -33,11 +33,39 @@
 		ORDER BY NUM DESC
 		LIMIT #{startRow}, #{perPage}
 	</select>
-
+	
+	<select id="getDetail" parameterType="BoardVO" resultMap="getDetailResult">
+		SELECT *
+		FROM NOTICE N
+			LEFT JOIN
+			NOTICEFILES NF
+			USING(NUM)
+		WHERE NUM=#{num}
+	</select>
+	
+	<resultMap type="NoticeVO" id="getDetailResult">
+		<id property="num" column="NUM"/>
+		<result property="title" column="TITLE"/>
+		<result property="writer" column="WRITER"/>
+		<result property="contents" column="CONTENTS"/>
+		<result property="regDate" column="REGDATE"/>
+		<result property="hit" column="HIT"/>
+		<collection property="boardFileVOs" javaType="list" ofType="BoardFileVO">
+			<id property="fileNum" column="FILENUM"/>
+			<result property="fileName" column="FILENAME"/>
+			<result property="oriName" column="ORINAME"/>
+		</collection>
+	</resultMap>
+	
+	<select id="getFileDetail" parameterType="BoardFileVO" resultType="FileManager">
+		SELECT * FROM
+		NOTICEFILE WHERE FILENUM = #{fileNum}
+	</select>
+	
 	<!-- insert -->
-	<insert id="setInsert" parameterType="BoardVO">
-		INSERT INTO NOTICE(TITLE, CONTENTS, WRITER, REGDATE,  HIT)
-		VALUES(#{title}, #{contents}, #{writer}, now(), 0)
+	<insert id="setInsert" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO NOTICE(NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT)
+		VALUES(#{num}, #{title}, #{contents}, #{writer}, now(), 0)
 	</insert>
 	
 	<!-- update -->
@@ -50,5 +78,10 @@
 	<delete id="setDelete" parameterType="BoardVO">
 		DELETE FROM NOTICE WHERE NUM=#{num}
 	</delete>
+	
+	<insert id="setFileInsert" parameterType="BoardFileVO" >
+		INSERT INTO NOTICEFILES(NUM, FILENAME, ORINAME)
+		VALUES (#{num}, #{fileName}, #{oriName})
+	</insert>
   
 </mapper>
