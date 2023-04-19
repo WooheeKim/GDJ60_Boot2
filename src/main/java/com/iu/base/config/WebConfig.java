@@ -5,7 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+//일반적인 자바 객체가 아니라 설정파일임을 나타내는 객체
 @Configuration
+@Slf4j
 public class WebConfig implements WebMvcConfigurer{
 	
 	@Value("${app.upload.base}")
