@@ -24,10 +24,6 @@
                 <div class="text-center mb-5">
                     <h1 class="fw-bolder">${board} List</h1>
                     <p class="lead fw-normal text-muted mb-0">April 18, 2023</p>
-                </div>
-                
-		<div class=" d-flex justify-content-end my-3">
-                	<a href="./add" class="btn btn-primary">글쓰기</a>
                 </div>    
 		    
                 <div>
@@ -84,7 +80,9 @@
 			</form>
 		</div>               
                 
-                
+                <div class=" d-flex justify-content-end my-3">
+                	<a href="./add" class="btn btn-primary">글쓰기</a>
+                </div>
                 
                 <!-- pager -->
                 <div class="d-flex justify-content-center">
