@@ -80,8 +80,8 @@
 	</delete>
 	
 	<insert id="setFileInsert" parameterType="BoardFileVO" >
-		INSERT INTO NOTICEFILES(NUM, FILENAME, ORINAME)
-		VALUES (#{num}, #{fileName}, #{oriName})
+		INSERT INTO NOTICEFILES(FILENUM, NUM, FILENAME, ORINAME)
+		VALUES (#{fileNum}, #{num}, #{fileName}, #{oriName})
 	</insert>
   
 </mapper>
