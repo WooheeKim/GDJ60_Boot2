@@ -25,6 +25,16 @@
 			<result property="roleName" column="ROLENAME"/>
 		</collection>
 	</resultMap>
+	
+	<insert id="setMemberJoin" parameterType="MemberVO">
+		INSERT INTO MEMBER
+		VALUES(#{userName}, #{password}, #{name}, #{email}, #{birth}, 1);
+	</insert>
+	
+	<insert id="setMemberRoleAdd" parameterType="MemberVO">
+		INSERT INTO MEMBER_ROLE
+		VALUSE(#{userName}, (SELECT NUM FROM ROLE WHERE ROLENAME='MEMBER'))
+	</insert>
 
 
 </mapper>

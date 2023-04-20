@@ -9,6 +9,8 @@ public interface MemberDAO {
 	
 	public int setMemberJoin(MemberVO memberVO) throws Exception;
 	
+	public int setMemberRoleAdd(MemberVO memberVO) throws Exception;
+	
 	public int userNameCheck(String userName) throws Exception;
 	
 	public MemberVO getMemberPage(MemberVO memberVO) throws Exception;

@@ -9,13 +9,16 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception {
+		return memberDAO.getMemberLogin(memberVO);
+	}
 	
 	public int setMemberJoin(MemberVO memberVO) throws Exception {
 		return memberDAO.setMemberJoin(memberVO);
 	}
-	
-	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception {
-		return memberDAO.getMemberLogin(memberVO);
+		
+	public int setMemberRoleAdd(MemberVO memberVO) throws Exception {
+		return memberDAO.setMemberRoleAdd(memberVO);
 	}
 	
 }
