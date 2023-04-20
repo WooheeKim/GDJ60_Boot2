@@ -67,18 +67,7 @@
 			</c:if>
 		</div>
 		    
-		<div class="d-flex justify-content-center my-3">    
-			<form action="./list" method="get">
-				<select name="kind">
-					<option value="title">title</option>
-					<option value="contents">contents</option>
-					<option value="writer">writer</option>
-				</select>
-
-				<input type="text" name="search">
-				<button type="submit">search</button>
-			</form>
-		</div>               
+		             
                 
                 <div class=" d-flex justify-content-end my-3">
                 	<a href="./add" class="btn btn-primary">글쓰기</a>
