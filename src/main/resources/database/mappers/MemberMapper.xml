@@ -4,7 +4,21 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.iu.base.member.MemberDAO">
+	
+	<select id="idDuplicateCheck" parameterType="MemberVO" resultType="boolean">
+		SELECT COUNT(*) FROM MEMBER WHERE USERNAME = #{userName}
+	</select>
 
+	<insert id="setMemberJoin" parameterType="MemberVO">
+		INSERT INTO MEMBER
+		VALUES(#{userName}, #{password}, #{name}, #{email}, #{birth}, #{enabled});
+	</insert>
+	
+	<insert id="setMemberRoleAdd" parameterType="Map">
+		INSERT INTO MEMBER_ROLE (USERNAME, NUM)
+		VALUES(#{userName}, #{num})
+	</insert>
+	
 	<select id="getMemberLogin" parameterType="MemberVO" resultMap="getLoginResult">
 		SELECT M.USERNAME, M.EMAIL, R.NUM, R.ROLENAME
 		FROM MEMBER M
@@ -26,15 +40,6 @@
 		</collection>
 	</resultMap>
 	
-	<insert id="setMemberJoin" parameterType="MemberVO">
-		INSERT INTO MEMBER
-		VALUES(#{userName}, #{password}, #{name}, #{email}, #{birth}, 1);
-	</insert>
-	
-	<insert id="setMemberRoleAdd" parameterType="MemberVO">
-		INSERT INTO MEMBER_ROLE
-		VALUSE(#{userName}, (SELECT NUM FROM ROLE WHERE ROLENAME='MEMBER'))
-	</insert>
 
 
 </mapper>

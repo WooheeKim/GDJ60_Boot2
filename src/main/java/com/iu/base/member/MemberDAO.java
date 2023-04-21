@@ -1,5 +1,7 @@
 package com.iu.base.member;
 
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -9,7 +11,9 @@ public interface MemberDAO {
 	
 	public int setMemberJoin(MemberVO memberVO) throws Exception;
 	
-	public int setMemberRoleAdd(MemberVO memberVO) throws Exception;
+	public boolean idDuplicateCheck(MemberVO memberVO) throws Exception;
+	
+	public int setMemberRoleAdd(Map<String, Object> map) throws Exception;
 	
 	public int userNameCheck(String userName) throws Exception;
 	

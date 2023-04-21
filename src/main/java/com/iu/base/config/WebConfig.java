@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 //일반적인 자바 객체가 아니라 설정파일임을 나타내는 객체
 @Configuration
 @Slf4j
+//***-context.xml
 public class WebConfig implements WebMvcConfigurer{
 	
 	@Value("${app.upload.base}")

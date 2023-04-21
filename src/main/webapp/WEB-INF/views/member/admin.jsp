@@ -18,7 +18,7 @@
     	<!-- Navigation-->
 			<c:import url="../temp/header.jsp"></c:import>
 		<!-- header -->
-    
+    	<h1>Admin Page</h1>
     </main>
     <!-- Footer 적용 -->
      	<c:import url="../temp/footer.jsp"></c:import>

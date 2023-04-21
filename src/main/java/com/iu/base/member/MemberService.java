@@ -1,5 +1,8 @@
 package com.iu.base.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +17,18 @@ public class MemberService {
 	}
 	
 	public int setMemberJoin(MemberVO memberVO) throws Exception {
-		return memberDAO.setMemberJoin(memberVO);
-	}
+		memberVO.setEnabled(true);
+		int result = memberDAO.setMemberJoin(memberVO);
+		Map<String, Object> map = new HashMap<>();
+		map.put("userName", memberVO.getUserName());
+		map.put("num", 3);
+		result = memberDAO.setMemberRoleAdd(map);
 		
-	public int setMemberRoleAdd(MemberVO memberVO) throws Exception {
-		return memberDAO.setMemberRoleAdd(memberVO);
+		return result;
+	}
+	
+	public boolean idDuplicateCheck(MemberVO memberVO) throws Exception {
+		return memberDAO.idDuplicateCheck(memberVO);
 	}
 	
 }
