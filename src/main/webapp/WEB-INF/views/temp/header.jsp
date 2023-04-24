@@ -33,7 +33,10 @@
                 	<c:if test="${empty member}">
 		                <li class="nav-item"><a class="nav-link" href="/member/login">Login</a></li>
 		                <li class="nav-item"><a class="nav-link" href="/member/join">Join</a></li>
-                	</c:if>                	
+                	</c:if>
+                	
+                	<li class="nav-item"><a class="nav-link" href="/?lang_opt=ko">KO</a></li>
+		            <li class="nav-item"><a class="nav-link" href="/?lang_opt=en">EN</a></li>
             </ul>
         </div>
     </div>

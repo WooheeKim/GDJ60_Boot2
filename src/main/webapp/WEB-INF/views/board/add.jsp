@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,24 +40,24 @@
                                 <!-- This form is pre-integrated with SB Forms.-->
                                 <!-- To make this form functional, sign up at-->
                                 <!-- https://startbootstrap.com/solution/contact-forms-->
-                                <!-- to get an API token!-->
-                                <form id="contactForm" action="./add" method="post" enctype="multipart/form-data">
+                                <!-- to get an API token!-->                              
+                                <form:form id="contactForm" action="./add" method="post" enctype="multipart/form-data" modelAttribute="boardVO">
                                     <!-- title input-->
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="title" type="text" placeholder="Enter Title..." data-sb-validations="required" name="title"/>
+                                    <div class="form-floating mb-3">                                        
+                                        <form:input path="title" id="title" cssClass="form-control"/>                                        
                                         <label for="title">Title</label>
-                                        <div class="invalid-feedback" data-sb-feedback="name:required">A title is required.</div>
+                                        <form:errors path="title" cssStyle="color:red"></form:errors>
                                     </div>
                                     <!-- writer input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="writer" type="text" data-sb-validations="required,email" name="writer"/>
+                                    	<form:input path="writer" id="writer" cssClass="form-control"/>                                        
                                         <label for="writer">Writer</label>
-                                        <div class="invalid-feedback" data-sb-feedback="email:required">An writer is required.</div>
-                                        <div class="invalid-feedback" data-sb-feedback="email:email">Writer is not valid.</div>
+                                        <form:errors path="writer" cssStyle="color:red"></form:errors>
                                     </div>
                                     <!-- Contents input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="contents" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required" name="contents"></textarea>
+                                    	<form:textarea path="contents" id="contents" cssClass="form-control" cssStyle="height: 10rem"/>
+                                        <!-- <textarea class="form-control" id="contents" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required" name="contents"></textarea> -->
                                         <label for="contents">Contents</label>
                                         <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                                     </div>
@@ -68,7 +69,8 @@
 	
                                     <!-- Submit Button-->
                                     <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
-                                </form>
+                                </form:form>
+                                <%-- </form> --%>
                             </div>
                         </div>
                     </div>

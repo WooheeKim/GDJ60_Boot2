@@ -28,20 +28,20 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		registry.addInterceptor(localeChangeInterceptor)
 					.addPathPatterns("/**");
 		
-		registry.addInterceptor(memberCheckInterceptor)
-					.addPathPatterns("/member/mypage")
-					.addPathPatterns("/qna/*")
-					.excludePathPatterns("/qna/list")
-					.addPathPatterns("/member/admin")
-					.addPathPatterns("/notice/*")
-					.excludePathPatterns("/notice/list")
-					.excludePathPatterns("/notice/detail");
-		
-		registry.addInterceptor(adminCheckInterceptor)
-					.addPathPatterns("/member/admin")
-					.addPathPatterns("/notice/*")
-					.excludePathPatterns("/notice/list")
-					.excludePathPatterns("/notice/detail");
+//		registry.addInterceptor(memberCheckInterceptor)
+//					.addPathPatterns("/member/mypage")
+//					.addPathPatterns("/qna/*")
+//					.excludePathPatterns("/qna/list")
+//					.addPathPatterns("/member/admin")
+//					.addPathPatterns("/notice/*")
+//					.excludePathPatterns("/notice/list")
+//					.excludePathPatterns("/notice/detail");
+//		
+//		registry.addInterceptor(adminCheckInterceptor)
+//					.addPathPatterns("/member/admin")
+//					.addPathPatterns("/notice/*")
+//					.excludePathPatterns("/notice/list")
+//					.excludePathPatterns("/notice/detail");
 		
 	}
 	

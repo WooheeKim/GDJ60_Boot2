@@ -11,7 +11,7 @@ public interface MemberDAO {
 	
 	public int setMemberJoin(MemberVO memberVO) throws Exception;
 	
-	public boolean idDuplicateCheck(MemberVO memberVO) throws Exception;
+	public MemberVO idDuplicateCheck(MemberVO memberVO) throws Exception;
 	
 	public int setMemberRoleAdd(Map<String, Object> map) throws Exception;
 	
