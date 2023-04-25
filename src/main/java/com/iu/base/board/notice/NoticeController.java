@@ -98,6 +98,8 @@ public class NoticeController {
 	
 	@PostMapping("add")
 	public ModelAndView setInsert(@Valid BoardVO boardVO, BindingResult bindingResult, MultipartFile[] boardFiles) throws Exception {
+		
+		
 		ModelAndView modelAndView = new ModelAndView();
 		
 		if(bindingResult.hasErrors()) {
@@ -111,7 +113,7 @@ public class NoticeController {
 		}
 		
 		
-		int result = noticeService.setInsert(boardVO, boardFiles);
+//		int result = noticeService.setInsert(boardVO, boardFiles);
 		
 		modelAndView.setViewName("redirect:./list");
 		return modelAndView;
