@@ -23,7 +23,10 @@ public class TestSchedule {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	@Scheduled(cron = "*/10 * * * * *")
+	@Autowired
+	private MailManager mailManager;
+	
+	@Scheduled(cron = "*/30 * * * * *")
 	public void test() throws Exception {
 //		log.error("===========반복중===========");
 //		
@@ -34,26 +37,33 @@ public class TestSchedule {
 //		}
 //		
 //		memberDAO.setEnabled();
+		// 생일인 사람 공지사항에 자동 축하 글쓰기
+//		List<MemberVO> ar = memberDAO.getBirth();
+//		
+//		StringBuffer sb = new StringBuffer();
+//		sb.append("오늘은 ");
+//		
+//		for(MemberVO memberVO:ar) {
+//			sb.append(memberVO.getUserName());
+//			sb.append(", ");
+//		}
+//		
+//		sb.append(" 생일입니다.");
+//		
+//		NoticeVO noticeVO = new NoticeVO();
+//		
+//		noticeVO.setTitle("생일 축하");
+//		noticeVO.setWriter("사장님");
+//		noticeVO.setContents(sb.toString());
+//		
+//		noticeDAO.setInsert(noticeVO);
 		
 		List<MemberVO> ar = memberDAO.getBirth();
 		
-		StringBuffer sb = new StringBuffer();
-		sb.append("오늘은 ");
-		
 		for(MemberVO memberVO:ar) {
-			sb.append(memberVO.getUserName());
-			sb.append(", ");
+			mailManager.send(memberVO.getEmail(), "생일축하", "<h1>생일축하</h1>");
 		}
 		
-		sb.append(" 생일입니다.");
-		
-		NoticeVO noticeVO = new NoticeVO();
-		
-		noticeVO.setTitle("생일 축하");
-		noticeVO.setWriter("사장님");
-		noticeVO.setContents(sb.toString());
-		
-		noticeDAO.setInsert(noticeVO);
 		
 	}
 	
