@@ -56,10 +56,15 @@ public class MemberService {
 		result = memberDAO.setMemberRoleAdd(map);
 		
 		return result;
-	}
+	}	
 	
 	public MemberVO idDuplicateCheck(MemberVO memberVO) throws Exception {
 		return memberDAO.idDuplicateCheck(memberVO);
 	}
+	
+	public int getMemberLogout(MemberVO memberVO) throws Exception {
+		return memberDAO.getMemberLogout(memberVO);
+	}
+	
 	
 }

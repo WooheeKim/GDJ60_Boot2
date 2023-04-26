@@ -1,5 +1,6 @@
 package com.iu.base.member;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -7,7 +8,15 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MemberDAO {
 	
+	public List<MemberVO> getBirth() throws Exception;
+	
+	public int setEnabled() throws Exception;
+	
+	public List<MemberVO> allUserName() throws Exception;
+	
 	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception;
+	
+	public int getMemberLogout(MemberVO memberVO) throws Exception;
 	
 	public int setMemberJoin(MemberVO memberVO) throws Exception;
 	
