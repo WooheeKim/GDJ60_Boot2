@@ -41,8 +41,8 @@
                                 <form action="./login" id="loginForm" method="post" data-sb-form-api-token="API_TOKEN">
                                     <!-- userName input-->
                                     <div class="form-floating mb-3">
-                                        <input name="userName" class="form-control" id="userName" type="text" data-sb-validations="required" />
-                                        <label for="userName">USERNAME</label>
+                                        <input name="username" class="form-control" id="username" type="text" data-sb-validations="required" />
+                                        <label for="username">USERNAME</label>
                                         <div class="invalid-feedback" data-sb-feedback="name:required">username is required.</div>
                                     </div>
                                     <!-- passWord input-->
@@ -56,6 +56,9 @@
                                         <button type="submit" id="loginBtn" class="btn btn-primary btn-lg px-4 me-sm-3">로그인</button>
                                     </div>
                                 </form>
+                                
+                                <a href="./findPassword">비밀번호 찾기</a>
+                                
                             </div>
                         </div>
                     </div>

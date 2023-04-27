@@ -40,11 +40,11 @@
                                 <!-- to get an API token!-->
                                 <form:form action="./join" id="joinForm" method="post" modelAttribute="memberVO">
                                 <%-- <form action="./join" id="joinForm" method="post" data-sb-form-api-token="API_TOKEN"> --%>
-                                    <!-- userName input-->
+                                    <!-- username input-->
                                     <div class="form-floating mb-3">
-                                    	<form:input path="userName" cssClass="form-control" id="userName"/>                                        
-                                        <form:label path="userName">USERNAME</form:label>                            
-                                        <form:errors path="userName"></form:errors>                                        
+                                    	<form:input path="username" cssClass="form-control" id="username"/>                                        
+                                        <form:label path="username">USERNAME</form:label>                            
+                                        <form:errors path="username"></form:errors>                                        
                                     </div>
                                     <!-- passWord input-->
                                     <div class="form-floating mb-3">

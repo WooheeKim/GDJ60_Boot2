@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MemberDAO {
 	
+	public int setPasswordUpdate(MemberVO memberVO) throws Exception;
+	
 	public List<MemberVO> getBirth() throws Exception;
 	
 	public int setEnabled() throws Exception;

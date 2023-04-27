@@ -55,10 +55,10 @@
                                         <form:errors path="writer" cssStyle="color:red"></form:errors>
                                     </div>
                                     
-                                    <div class="form-floating mb-3">
+                                    <%-- <div class="form-floating mb-3">
                                     	<form:input path="subVO.subName" id="writer" cssClass="form-control"/>                                        
                                         <label for="writer">SubName</label>                                        
-                                    </div>
+                                    </div> --%>
                                     
                                     <!-- Contents input-->
                                     <div class="form-floating mb-3">
