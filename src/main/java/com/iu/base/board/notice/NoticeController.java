@@ -91,6 +91,7 @@ public class NoticeController {
 	public ModelAndView setInsert(@ModelAttribute BoardVO boardVO) throws Exception {		
 		ModelAndView modelAndView = new ModelAndView();
 		
+		
 		modelAndView.setViewName("board/add");
 		//modelAndView.addObject(new NoticeVO()); // 속성명은 클래스명의 첫 글자를 소문자로 바꾼 것
 		return modelAndView;

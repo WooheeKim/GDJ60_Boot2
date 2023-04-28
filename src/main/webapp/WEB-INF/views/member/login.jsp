@@ -44,6 +44,7 @@
                                 </c:if>
                                 
                                 <form action="./login" id="loginForm" method="post" data-sb-form-api-token="API_TOKEN">
+                                	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                                     <!-- userName input-->
                                     <div class="form-floating mb-3">
                                         <input name="username" class="form-control" id="username" type="text" data-sb-validations="required" value="${cookie.remember.value}" />
@@ -68,7 +69,7 @@
                                 </form>
                                 
                                 <a href="./findPassword">비밀번호 찾기</a>
-                                
+                                <a href="/oauth2/authorization/kakao">Kakao Login</a>
                             </div>
                         </div>
                     </div>

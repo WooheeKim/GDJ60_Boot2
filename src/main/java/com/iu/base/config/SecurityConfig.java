@@ -1,5 +1,6 @@
 package com.iu.base.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.iu.base.member.MemberService;
+import com.iu.base.member.MemberSocialService;
 import com.iu.base.security.UserLoginFailHandler;
 import com.iu.base.security.UserLogoutSuccessHandler;
 import com.iu.base.security.UserSuccessHandler;
@@ -16,6 +19,9 @@ import com.iu.base.security.UserSuccessHandler;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+	
+	@Autowired
+	MemberSocialService memberSocialService;
 	
 	@Bean
 	// public을 선언하면 default로 바꾸라는 메세지 출력
@@ -66,6 +72,14 @@ public class SecurityConfig {
 				.invalidateHttpSession(true)
 				.deleteCookies("JSESSIONID")
 				.permitAll()
+				.and()
+			.oauth2Login()
+				.userInfoEndpoint()
+				.userService(memberSocialService)
+				
+//			.sessionManagement()
+//				.maximumSessions(1) // 최대 허용 가능한 세션의 수, -1 : 세션 허용 수 무제한
+//				.maxSessionsPreventsLogin(false) // false : 이전 사용자의 세션을 만료시킴, true : 새로운 사용자를 인증실패처리
 				
 			;
 		

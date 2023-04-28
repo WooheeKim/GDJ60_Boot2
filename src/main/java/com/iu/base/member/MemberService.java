@@ -27,6 +27,9 @@ public class MemberService implements UserDetailsService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	
+	
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		log.error("=========Spring Security Login=========");
