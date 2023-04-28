@@ -5,6 +5,10 @@
   
 <mapper namespace="com.iu.base.member.MemberDAO">
 	
+	<update id="setPasswordUpdate">
+		UPDATE MEMBER SET PASSWORD
+	</update>
+	
 	<select id="getBirth" resultType="MemberVO">
 		SELECT NAME, EMAIL FROM MEMBER
 		WHERE DATE_FORMAT(birth, '%m-%d')=DATE_FORMAT(NOW(), '%m-%d') 
@@ -22,7 +26,7 @@
 	</update>
 	
 	<select id="allUserName" resultType="MemberVO">
-		SELECT USERNAME FROM MEMBER		
+		SELECT USERNAME FROM MEMBER
 	</select>
 	
 	<select id="idDuplicateCheck" parameterType="MemberVO" resultType="MemberVO">
