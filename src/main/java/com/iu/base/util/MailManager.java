@@ -22,38 +22,38 @@ public class MailManager {
 	@Autowired
 	private JavaMailSender javaMailSender;
 	
-//	public void send(String to, String sub, String con) throws Exception {
-//		/* HTML 태그 그대로 전송하는 방법 */
-//		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-//		mimeMessage.setFrom(sender);
-//		mimeMessage.addRecipient(RecipientType.TO, new InternetAddress(to));
-//		mimeMessage.setSubject(sub);
-//		mimeMessage.setText(con);
-//		javaMailSender.send(mimeMessage);
-//		
-//		/* HTML태그를 무시하고 그대로 Text 전송 */
-////		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();		
-////		simpleMailMessage.setFrom(sender);
-////		simpleMailMessage.setTo(to);
-////		simpleMailMessage.setSubject(to);
-////		simpleMailMessage.setText(con);
-////		
-////		javaMailSender.send(simpleMailMessage);
-//		
-//		
-//		
-//	}
-	
-	public void sendEmail(Email email) throws Exception {
-		
+	public void send(String to, String sub, String con) throws Exception {
+		/* HTML 태그 그대로 전송하는 방법 */
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+		mimeMessage.setFrom(sender);
+		mimeMessage.addRecipient(RecipientType.TO, new InternetAddress(to));
+		mimeMessage.setSubject(sub);
+		mimeMessage.setText(con);
+		javaMailSender.send(mimeMessage);
 		
-		try {
-			mimeMessage.setSender(email.);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		/* HTML태그를 무시하고 그대로 Text 전송 */
+//		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();		
+//		simpleMailMessage.setFrom(sender);
+//		simpleMailMessage.setTo(to);
+//		simpleMailMessage.setSubject(to);
+//		simpleMailMessage.setText(con);
+//		
+//		javaMailSender.send(simpleMailMessage);
+		
+		
 		
 	}
+	
+//	public void sendEmail(Email email) throws Exception {
+//		
+//		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+//		
+//		try {
+//			mimeMessage.setSender(email.);
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		
+//	}
 	
 }

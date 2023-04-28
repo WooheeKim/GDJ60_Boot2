@@ -38,6 +38,11 @@
                                 <!-- To make this form functional, sign up at-->
                                 <!-- https://startbootstrap.com/solution/contact-forms-->
                                 <!-- to get an API token!-->
+                                
+                                <c:if test="${not empty param.errorMessage}">
+                                	<h1>${param.errorMessage}</h1>
+                                </c:if>
+                                
                                 <form action="./login" id="loginForm" method="post" data-sb-form-api-token="API_TOKEN">
                                     <!-- userName input-->
                                     <div class="form-floating mb-3">
@@ -74,6 +79,7 @@
     <!-- Footer 적용 -->
         <c:import url="../temp/footer.jsp"></c:import>
      <!-- Footer 끝 -->
+     <script type="text/javascript">history.replaceState({}, null, location.pathname)</script>
      <script type="text/javascript" src="../js/member.js"></script>
 </body>
 </html>
