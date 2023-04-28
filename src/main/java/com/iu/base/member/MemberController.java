@@ -106,7 +106,7 @@ public class MemberController {
 		
 		Object obj = session.getAttribute("SPRING_SECURITY_CONTEXT");
 		if(obj==null) {
-			modelAndView.setViewName("member/login");			
+			modelAndView.setViewName("member/login");
 		} else {
 			modelAndView.setViewName("redirect:/");
 		}
