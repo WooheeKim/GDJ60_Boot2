@@ -45,9 +45,9 @@ public class MemberController {
 		SecurityContextImpl contextImpl = (SecurityContextImpl)obj;
 		Authentication authentication = contextImpl.getAuthentication();
 		
-		log.error("=====NAME : {}=====", authentication.getName());
-		log.error("=====Details : {}=====", authentication.getDetails());
-		log.error("=====Principal : {}=====", authentication.getPrincipal());
+		log.error("=====USERNAME : {}=====", authentication.getName());
+		log.error("=====Detail : {}=====", authentication.getDetails());
+		log.error("=====MemberVO : {}=====", authentication.getPrincipal());
 	}
 	
 	@GetMapping("mypage")
@@ -101,9 +101,16 @@ public class MemberController {
 	}
 	
 	@GetMapping("login")
-	public ModelAndView getMemberLogin() throws Exception {
+	public ModelAndView getMemberLogin(HttpSession session) throws Exception {		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("member/login");
+		
+		Object obj = session.getAttribute("SPRING_SECURITY_CONTEXT");
+		if(obj==null) {
+			modelAndView.setViewName("member/login");			
+		} else {
+			modelAndView.setViewName("redirect:/");
+		}
+		
 		return modelAndView;
 	}
 	

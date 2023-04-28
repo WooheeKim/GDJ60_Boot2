@@ -9,6 +9,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.iu.base.security.UserLogoutSuccessHandler;
+import com.iu.base.security.UserSuccessHandler;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -49,13 +52,15 @@ public class SecurityConfig {
 				.and()
 			.formLogin()
 				.loginPage("/member/login")				
-				.defaultSuccessUrl("/")
+//				.defaultSuccessUrl("/")
+				.successHandler(new UserSuccessHandler())
 				.failureUrl("/member/login")
 				.permitAll()
 				.and()
 			.logout()
 				.logoutUrl("/member/logout")
-				.logoutSuccessUrl("/")
+				.logoutSuccessHandler(new UserLogoutSuccessHandler())
+//				.logoutSuccessUrl("/")
 				.invalidateHttpSession(true)
 				.deleteCookies("JSESSIONID")
 				.permitAll()
