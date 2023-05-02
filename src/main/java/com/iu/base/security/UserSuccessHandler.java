@@ -50,7 +50,6 @@ public class UserSuccessHandler implements AuthenticationSuccessHandler {
 		// forward
 //		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
 //		view.forward(request, response);
-		
 		// redirect
 		response.sendRedirect("/");
 		

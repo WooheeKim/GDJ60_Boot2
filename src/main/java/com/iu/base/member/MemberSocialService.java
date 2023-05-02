@@ -59,6 +59,9 @@ public class MemberSocialService extends DefaultOAuth2UserService {
 		log.error("Nickname {} :::", m.get("nickname").toString());		
 		
 		MemberVO memberVO = new MemberVO();
+		
+		memberVO.setAttributes(map);
+		
 		memberVO.setUsername(m.get("nickname").toString());
 		
 		List<RoleVO> roleVOs = new ArrayList<>();

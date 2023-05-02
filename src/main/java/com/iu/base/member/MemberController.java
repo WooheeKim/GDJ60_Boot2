@@ -144,20 +144,20 @@ public class MemberController {
 		return modelAndView;
 	}
 	
-	@GetMapping("logout")
-	public ModelAndView getMemberLogout(HttpSession session) throws Exception {
-		ModelAndView modelAndView = new ModelAndView();
-		
-		
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		
-		int result = memberService.getMemberLogout(memberVO);
-		
-		session.invalidate();
-		
-				
-		modelAndView.setViewName("redirect:../");
-		return modelAndView;
-	}
+//	@GetMapping("logout")
+//	public ModelAndView getMemberLogout(HttpSession session) throws Exception {
+//		ModelAndView modelAndView = new ModelAndView();
+//		
+//		
+//		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+//		
+//		int result = memberService.getMemberLogout(memberVO);
+//		
+//		session.invalidate();
+//		
+//				
+//		modelAndView.setViewName("redirect:../");
+//		return modelAndView;
+//	}
 	
 }
