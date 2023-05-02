@@ -43,7 +43,7 @@ public class UserLogoutSuccessHandler implements LogoutSuccessHandler {
 		log.error("=============== Logout Success Handler ===============");
 		log.error("=============== {} ===============", memberDAO);
 		
-		String redirectUri = "http://localhost/";
+		String redirectUri = "http://ec2-3-39-232-78.ap-northeast-2.compute.amazonaws.com/";
 		response.sendRedirect("https://kauth.kakao.com/oauth/logout?client_id="+restKey+"&logout_redirect_uri="+redirectUri);
 		log.error("restkey :::{}", restKey);
 //		response.sendRedirect("/");
